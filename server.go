@@ -13,6 +13,7 @@ func main() {
 
 	fmt.Println("Assinging handlers")
 	muxHandler.Handle("/", handlers.Index())
+	muxHandler.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	loggedMux := middleware.Logger(muxHandler)
 
