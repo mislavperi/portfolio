@@ -7,7 +7,7 @@ import (
 
 func Index() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		t, err := template.ParseFiles("static/html/index.html")
+		t, err := template.ParseFiles("static/html/base.html", "static/html/index.html")
 		if err != nil {
 			panic(err)
 		}
