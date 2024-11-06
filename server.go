@@ -14,6 +14,8 @@ func main() {
 	fmt.Println("Assinging handlers")
 	muxHandler.Handle("/", handlers.Index())
 	muxHandler.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	muxHandler.Handle("/static/css/", http.StripPrefix("/static/css/", http.FileServer(http.Dir("static/css"))))
+	muxHandler.Handle("/static/js/", http.StripPrefix("/static/js/", http.FileServer(http.Dir("static/js"))))
 
 	loggedMux := middleware.Logger(muxHandler)
 
